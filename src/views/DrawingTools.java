@@ -4,27 +4,25 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
+import java.awt.event.MouseListener;
 
 public class DrawingTools extends JPanel {
 
     private CustomJColorChooser colorChooser;
     private Shapes shapes;
 
-    public DrawingTools(ActionListener listener, FocusListener focusListener) {
+    public DrawingTools(ActionListener listener, MouseListener mouseListener) {
         this.setBackground(Color.BLACK);
-        initComponents(listener,focusListener);
+        initComponents(listener,mouseListener);
     }
 
-    private void initComponents(ActionListener listener,FocusListener focusListener) {
+    private void initComponents(ActionListener listener,MouseListener mouseListener) {
         this.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.weighty=1.0;
         gbc.gridy = 0;
-        colorChooser = new CustomJColorChooser();
-        System.out.println(colorChooser.isFocusable());
-        colorChooser.getSwatchPanel().addFocusListener(focusListener);
+        colorChooser = new CustomJColorChooser(mouseListener);
         this.add(colorChooser,gbc);
-
         gbc.gridy=1;
         shapes = new Shapes(listener);
         this.add(shapes,gbc);

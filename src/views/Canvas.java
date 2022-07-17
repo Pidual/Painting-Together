@@ -10,14 +10,16 @@ import java.awt.event.MouseMotionListener;
 public class Canvas extends JPanel implements MouseMotionListener, MouseListener {
 
     private Color actualColor = Color.BLACK;
-    private int currentShape = 0; // 0 for circle 1 for
+    //0 Circulo
+    //1 Cuadrado
+    //2 Triangulo
+    private int currentShape = 0;
 
-    public Canvas(FocusListener focusListener){
+    public Canvas( ){
         addMouseMotionListener(this);
         addMouseListener(this);
         setSize(1200,700);
         setBackground(Color.WHITE);
-        addFocusListener(focusListener);
     }
 
     @Override
@@ -67,13 +69,14 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
                 g.fillRect(x,y,width,heigth);
                 break;
             case 2://Triangle
-                g.drawPolygon(new int[] {10, 20, 30}, new int[] {100, 20, 100}, 3);
+                g.fillPolygon(new int[] {x, x-width, x+width}, new int[] {y-width, y+width, y+width}, 3);
                 break;
             case 3: //Diamond
-                g.drawPolygon(new int[]{x+width, x, x-width,x},new int[]{y,y-width,y+width,y},4);
+                // x coordinates of vertices
+                g.fillPolygon(new int[]{x-width, x, x+width,x},new int[]{y,y+width,y,y-width},4);
                 break;
             case 4: //RELOJ DE ARENA XDDXDX
-                g.drawPolygon(new int[]{x-width, x , x , x+width},new int[]{y,y-width,y+width,y},4);
+                g.fillPolygon(new int[]{x-width, x , x , x+width},new int[]{y,y-width,y+width,y},4);
                 break;
         }
     }

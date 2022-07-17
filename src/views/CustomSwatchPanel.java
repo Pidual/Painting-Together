@@ -15,10 +15,11 @@ public class CustomSwatchPanel extends AbstractColorChooserPanel {
     SwatchPanel swatchPanel;
     MouseListener mainSwatchListener;
     private KeyListener mainSwatchKeyListener;
-
-    public CustomSwatchPanel(){
+    private MouseListener listener;
+    public CustomSwatchPanel(MouseListener listener){
         super();
         setInheritsPopupMenu(true);
+        this.listener = listener;
     }
 
     public String getDisplayName() {
@@ -54,10 +55,10 @@ public class CustomSwatchPanel extends AbstractColorChooserPanel {
         swatchPanel.putClientProperty(AccessibleContext.ACCESSIBLE_NAME_PROPERTY,
                 getDisplayName());
         swatchPanel.setInheritsPopupMenu(true);
-
         mainSwatchKeyListener = new MainSwatchKeyListener();
         mainSwatchListener = new MainSwatchListener();
         swatchPanel.addMouseListener(mainSwatchListener);
+        swatchPanel.addMouseListener(listener);
         swatchPanel.addKeyListener(mainSwatchKeyListener);
         JPanel mainHolder = new JPanel(new BorderLayout());
         Border border = new CompoundBorder( new LineBorder(Color.black),

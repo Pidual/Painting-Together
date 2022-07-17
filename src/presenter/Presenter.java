@@ -2,12 +2,9 @@ package presenter;
 
 import views.Views;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.*;
 
-public class Presenter implements ActionListener, FocusListener {
+public class Presenter implements ActionListener, MouseListener {
 
     private Views view;
 
@@ -36,13 +33,28 @@ public class Presenter implements ActionListener, FocusListener {
     }
 
     @Override
-    public void focusGained(FocusEvent e) {
-        System.out.println("FOCUS ACTIVATION");
-        }
+    public void mouseClicked(MouseEvent e) {
+
+    }
 
     @Override
-    public void focusLost(FocusEvent e) {
-        System.out.println("FOCUS LOST");
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        view.changeColor();
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }
 

@@ -12,7 +12,6 @@ public class Presenter implements ActionListener, MouseListener {
         view = new Views(this,this);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
@@ -31,6 +30,7 @@ public class Presenter implements ActionListener, MouseListener {
                 break;
         }
     }
+
 
     @Override
     public void mouseClicked(MouseEvent e) {

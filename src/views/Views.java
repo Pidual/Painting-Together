@@ -3,7 +3,6 @@ package views;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusListener;
 import java.awt.event.MouseListener;
 
 public class Views extends JFrame{

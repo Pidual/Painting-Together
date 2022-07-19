@@ -10,9 +10,6 @@ import java.awt.event.MouseMotionListener;
 public class Canvas extends JPanel implements MouseMotionListener, MouseListener {
 
     private Color actualColor = Color.BLACK;
-    //0 Circulo
-    //1 Cuadrado
-    //2 Triangulo
     private int currentShape = 0;
 
     public Canvas( ){
@@ -24,7 +21,7 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        drawShape(e.getX(),e.getY(),20,20);
+        drawShape(e.getX(),e.getY(),20);
     }
 
     @Override
@@ -44,7 +41,7 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        drawShape(e.getX(),e.getY(),20,20);
+        drawShape(e.getX(),e.getY(),20);
     }
 
     @Override
@@ -58,15 +55,15 @@ public class Canvas extends JPanel implements MouseMotionListener, MouseListener
     }
 
 
-    private void drawShape(int x, int y , int width,int heigth){
+    private void drawShape(int x, int y , int width){
         Graphics g = getGraphics();
         g.setColor(actualColor);
         switch (currentShape){
             case 0: //circle
-                g.fillOval(x ,y,width,heigth);
+                g.fillOval(x ,y,width,width);
                 break;
             case 1: //square
-                g.fillRect(x,y,width,heigth);
+                g.fillRect(x,y,width,width);
                 break;
             case 2://Triangle
                 g.fillPolygon(new int[] {x, x-width, x+width}, new int[] {y-width, y+width, y+width}, 3);

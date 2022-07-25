@@ -10,9 +10,13 @@ public class CustomJButton extends JButton {
         this.setMargin(new Insets(0, 0, 0, 0));
         this.setContentAreaFilled(false);
         this.setBorder(null);
+
+
         this.setIcon(icon);
         this.setRolloverIcon(hoverIcon);
         this.setPressedIcon(pressedIcon);
+
+
         this.setBorderPainted(false);
     }
 

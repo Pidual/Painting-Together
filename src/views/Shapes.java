@@ -23,6 +23,7 @@ public class Shapes extends JPanel {
 
         gbc.gridy =0;
         gbc.gridx = 0;
+
         circle = new CustomJButton(new ImageIcon(circleIconPath),new ImageIcon("src/resources/CircleHover.png"),new ImageIcon("src/resources/CirclePressed.png"));
         circle.addActionListener(listener);
         circle.setActionCommand("DRAWING_SHAPE_TOOL_CIRCLE");

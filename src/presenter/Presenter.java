@@ -17,7 +17,6 @@ public class Presenter implements MouseListener, MouseMotionListener {
         network = new Network(); //Primero vemos si nos podemos conectar
         coordinates = new ArrayList<>(); //Iniciamos nuestro array de coordenadas
         view = new Views(this,this); //Despues si se muestra la vista
-        System.out.println("Presenter finish");
         waitForCoordinates();
     }
 
@@ -43,11 +42,16 @@ public class Presenter implements MouseListener, MouseMotionListener {
             coordinates.add(e.getX()+","+e.getY());
     }
 
+//    @Override
+//    public void mouseClicked(MouseEvent e) { //Cuando clickea dibuja
+//            coordinates.add(e.getX()+","+e.getY());
+//            network.sendDataToBeDrawn(coordinates);
+//            coordinates.clear();
+//    }
+
     @Override
-    public void mouseClicked(MouseEvent e) { //Cuando clickea dibuja
-            coordinates.add(e.getX()+","+e.getY());
-            network.sendDataToBeDrawn(coordinates);
-            coordinates.clear();
+    public void mouseClicked(MouseEvent e) {
+
     }
 
     @Override
